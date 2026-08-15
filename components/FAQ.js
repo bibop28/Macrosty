@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const faqs = [
   {
     question: "What is Macroly?",
@@ -24,8 +28,10 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
-    <section id="faq" className="px-5 py-24 sm:px-6 lg:px-8">
+    <section id="faq" className="px-5 py-24 sm:px-6 lg:px-8 lg:py-28" data-reveal>
       <div className="mx-auto max-w-3xl">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">
@@ -36,31 +42,44 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="mt-10 space-y-3">
-          {faqs.map((faq) => (
-            <details
-              key={faq.question}
-              className="group rounded-lg border border-white/10 bg-white/[0.03] p-5 transition hover:border-white/20"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-semibold text-white">
-                <span>{faq.question}</span>
-                <span className="grid size-8 shrink-0 place-items-center rounded-md border border-white/10 text-zinc-400 transition group-open:rotate-45 group-open:text-cyan-200">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="size-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </span>
-              </summary>
-              <p className="mt-4 text-sm leading-6 text-zinc-400">{faq.answer}</p>
-            </details>
-          ))}
+        <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            const panelId = `faq-panel-${index}`;
+            const buttonId = `faq-button-${index}`;
+
+            return (
+              <div key={faq.question} className="group">
+                <button
+                  id={buttonId}
+                  type="button"
+                  className="flex w-full items-center justify-between gap-5 py-5 text-left text-base font-semibold text-white transition hover:text-cyan-50"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                >
+                  <span>{faq.question}</span>
+                  <span className="grid size-8 shrink-0 place-items-center rounded-md border border-white/10 text-zinc-400 transition group-hover:border-white/20 group-hover:text-cyan-200">
+                    <span aria-hidden="true">{isOpen ? "-" : "+"}</span>
+                  </span>
+                </button>
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="max-w-2xl pb-5 text-sm leading-6 text-zinc-400">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
