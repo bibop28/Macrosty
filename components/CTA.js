@@ -1,7 +1,7 @@
 export default function CTA() {
   return (
-    <section id="download" className="px-5 pb-24 pt-10 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-5xl rounded-lg border border-white/10 bg-[#0f1113] px-6 py-12 text-center shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:px-10">
+    <section id="download" className="border-t border-white/10 bg-[#080809] px-5 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl text-center">
         <h2 className="text-3xl font-semibold tracking-normal text-white sm:text-4xl">
           Ready to automate repetitive actions?
         </h2>
