@@ -1,3 +1,5 @@
+import BrandMark from "./BrandMark";
+
 const footerLinks = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
@@ -9,9 +11,10 @@ const footerLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 px-5 py-8 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <a href="#top" className="text-sm font-semibold text-white">
+          <a href="#top" className="inline-flex items-center gap-3 text-sm font-semibold text-white">
+            <BrandMark className="size-8" />
             Macroly
           </a>
           <p className="mt-3 text-sm text-zinc-500">&copy; 2026 Macroly</p>
