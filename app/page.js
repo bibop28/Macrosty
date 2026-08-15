@@ -7,10 +7,12 @@ import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Navbar from "@/components/Navbar";
 import Privacy from "@/components/Privacy";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#050506] font-sans text-zinc-50">
+      <ScrollReveal />
       <Navbar />
       <main>
         <Hero />
