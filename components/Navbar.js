@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import BrandMark from "./BrandMark";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -12,37 +13,56 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateScrolled = () => setIsScrolled(window.scrollY > 8);
+
+    updateScrolled();
+    window.addEventListener("scroll", updateScrolled, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateScrolled);
+  }, []);
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050506]/90 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 border-b transition duration-300 ${
+        isScrolled || isOpen
+          ? "border-white/10 bg-[#050506]/95 shadow-[0_18px_50px_rgba(0,0,0,0.32)] backdrop-blur-xl"
+          : "border-white/[0.06] bg-[#050506]/78 backdrop-blur-md"
+      }`}
+    >
       <nav
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8"
+        className="relative mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 sm:px-6 lg:px-8"
         aria-label="Primary navigation"
       >
         <a
           href="#top"
-          className="flex items-center gap-3 text-sm font-semibold tracking-wide text-white"
-          onClick={() => setIsOpen(false)}
+          className="flex items-center gap-3 text-sm font-semibold tracking-wide text-white transition hover:text-cyan-50"
+          onClick={closeMenu}
         >
-          <span className="grid size-8 place-items-center rounded-md border border-cyan-300/30 bg-cyan-300/10 text-cyan-200">
-            M
-          </span>
+          <BrandMark className="size-8" />
           Macroly
         </a>
 
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+              className="text-sm font-medium text-zinc-400 transition hover:-translate-y-0.5 hover:text-white"
             >
               {link.label}
             </a>
           ))}
+        </div>
+
+        <div className="hidden md:block">
           <a
             href="#download"
-            className="rounded-md border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100 shadow-[0_0_0_1px_rgba(103,232,249,0.05)] transition hover:border-cyan-200/50 hover:bg-cyan-300/15 hover:text-white"
+            className="inline-flex h-10 items-center justify-center rounded-md border border-cyan-300/35 bg-cyan-300/10 px-4 text-sm font-semibold text-cyan-50 shadow-[0_0_0_1px_rgba(103,232,249,0.04)] transition hover:-translate-y-0.5 hover:border-cyan-200/55 hover:bg-cyan-300/15 active:translate-y-0"
           >
             Download
           </a>
@@ -50,7 +70,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex size-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.03] text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.06] md:hidden"
+          className="inline-flex size-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.03] text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.06] active:scale-95 md:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
@@ -74,32 +94,39 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {isOpen ? (
-        <div
-          id="mobile-menu"
-          className="border-t border-white/10 bg-[#080809] px-5 py-4 md:hidden"
-        >
-          <div className="mx-auto flex max-w-7xl flex-col gap-2">
+      <div
+        id="mobile-menu"
+        className={`grid border-t bg-[#080809]/98 transition-[grid-template-rows,opacity,border-color] duration-200 ease-out md:hidden ${
+          isOpen
+            ? "grid-rows-[1fr] border-white/10 opacity-100"
+            : "pointer-events-none grid-rows-[0fr] border-transparent opacity-0"
+        }`}
+        aria-hidden={!isOpen}
+      >
+        <div className="overflow-hidden">
+          <div className="mx-auto flex max-w-[1440px] flex-col gap-1 px-5 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
+                tabIndex={isOpen ? 0 : -1}
                 className="rounded-md px-3 py-3 text-sm font-medium text-zinc-300 transition hover:bg-white/[0.04] hover:text-white"
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenu}
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#download"
-              className="mt-2 rounded-md border border-cyan-300/30 bg-cyan-300/10 px-3 py-3 text-sm font-semibold text-cyan-100 transition hover:border-cyan-200/50 hover:bg-cyan-300/15"
-              onClick={() => setIsOpen(false)}
+              tabIndex={isOpen ? 0 : -1}
+              className="mt-2 rounded-md border border-cyan-300/35 bg-cyan-300/10 px-3 py-3 text-sm font-semibold text-cyan-50 transition hover:border-cyan-200/50 hover:bg-cyan-300/15"
+              onClick={closeMenu}
             >
               Download
             </a>
           </div>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }
