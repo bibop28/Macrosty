@@ -1,8 +1,8 @@
 export default function Privacy() {
   return (
-    <section id="privacy" className="px-5 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 rounded-lg border border-white/10 bg-[#101113] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.35)] sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:p-10">
-        <div className="rounded-lg border border-white/10 bg-[#080809] p-6">
+    <section id="privacy" className="border-y border-white/10 bg-[#080809] px-5 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="rounded-lg border border-white/10 bg-[#101113] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
           <div className="mx-auto grid aspect-[4/3] max-w-sm place-items-center rounded-lg border border-cyan-300/20 bg-cyan-300/[0.04]">
             <svg
               viewBox="0 0 120 90"
