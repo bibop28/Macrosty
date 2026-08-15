@@ -64,28 +64,34 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="px-5 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="max-w-2xl">
+    <section id="features" className="px-5 py-24 sm:px-6 lg:px-8 lg:py-28" data-reveal>
+      <div className="mx-auto max-w-[1280px]">
+        <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">
             Features
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-normal text-white sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-normal text-white sm:text-4xl lg:text-5xl">
             Everything you need. Nothing you don&apos;t.
           </h2>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400">
+            Macroly focuses on the core macro workflow: capture input, preserve
+            timing, replay with control, and stop immediately when needed.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <article
               key={feature.title}
-              className="rounded-lg border border-white/10 bg-white/[0.03] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.2)] transition duration-200 hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-white/[0.05]"
+              className="group border-t border-white/10 py-7 transition duration-200 hover:border-cyan-300/30"
             >
-              <div className="mb-5 grid size-11 place-items-center rounded-md border border-cyan-300/20 bg-cyan-300/10 text-cyan-200">
-                <div className="size-6">{feature.icon}</div>
+              <div className="mb-5 grid size-10 place-items-center rounded-md border border-white/10 bg-white/[0.025] text-cyan-200 transition group-hover:-translate-y-0.5 group-hover:border-cyan-300/30 group-hover:bg-cyan-300/10">
+                <div className="size-5">{feature.icon}</div>
               </div>
               <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-zinc-400">{feature.description}</p>
+              <p className="mt-3 max-w-sm text-sm leading-6 text-zinc-400">
+                {feature.description}
+              </p>
             </article>
           ))}
         </div>
