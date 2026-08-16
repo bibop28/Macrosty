@@ -28,7 +28,7 @@ function GitHubIcon() {
 export default function Hero() {
   return (
     <section id="top" className="relative px-5 pb-10 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pb-16 lg:pt-28">
-      <div className="mx-auto grid max-w-[1440px] gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.72fr)] lg:items-center">
+      <div className="mx-auto grid max-w-[1440px] gap-12 xl:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.72fr)] xl:items-center">
         <div className="max-w-3xl">
           <div className="mb-7 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.025] px-3 py-2 text-sm text-zinc-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
             <span className="size-2 rounded-full bg-cyan-300" aria-hidden="true" />
@@ -49,8 +49,8 @@ export default function Hero() {
               className="inline-flex min-h-[52px] items-center justify-center gap-3 rounded-md bg-cyan-200 px-5 py-3 text-sm font-semibold text-zinc-950 shadow-[0_12px_30px_rgba(103,232,249,0.16)] transition hover:-translate-y-0.5 hover:bg-cyan-100 active:translate-y-0 sm:px-5"
             >
               <DownloadIcon />
-              <span>Download for Windows</span>
-              <span className="rounded border border-zinc-950/15 bg-zinc-950/5 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-700">
+              <span className="whitespace-nowrap">Download for Windows</span>
+              <span className="shrink-0 rounded border border-zinc-950/15 bg-zinc-950/5 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-zinc-700">
                 Coming Soon
               </span>
             </a>
@@ -59,7 +59,7 @@ export default function Hero() {
               className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-white/10 bg-white/[0.025] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.06] active:translate-y-0"
             >
               <GitHubIcon />
-              View on GitHub
+              <span className="whitespace-nowrap">View on GitHub</span>
             </a>
           </div>
 
@@ -68,7 +68,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <div className="ml-auto max-w-lg rounded-xl border border-white/10 bg-[#0a0b0d] p-5 shadow-[0_28px_80px_rgba(0,0,0,0.36)]">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <p className="text-sm font-semibold text-white">Macro timeline</p>
