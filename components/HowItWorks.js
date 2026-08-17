@@ -2,7 +2,7 @@ const steps = [
   {
     number: "01",
     title: "Record",
-    description: "Press Record in Macroly or use the visual F6 shortcut.",
+    description: "Press Record in Macroly and begin the sequence.",
   },
   {
     number: "02",
