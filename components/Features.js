@@ -77,13 +77,13 @@ export default function Features() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-x-12 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <article
               key={feature.title}
-              className="group border-t border-white/10 py-7 transition duration-200 hover:border-cyan-300/30"
+              className="group border-t border-white/[0.07] pt-5 transition duration-200 hover:border-cyan-300/25"
             >
-              <div className="mb-5 grid size-10 place-items-center rounded-md border border-white/10 bg-white/[0.025] text-cyan-200 transition group-hover:-translate-y-0.5 group-hover:border-cyan-300/30 group-hover:bg-cyan-300/10">
+              <div className="mb-4 text-cyan-200 transition group-hover:-translate-y-0.5 group-hover:text-cyan-100">
                 <div className="size-5">{feature.icon}</div>
               </div>
               <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
