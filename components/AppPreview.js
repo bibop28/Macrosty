@@ -132,7 +132,12 @@ export default function AppPreview() {
     mode === "recorded" || (mode === "ready" && hasRecording)
       ? "00:02.10"
       : formatElapsed(elapsed);
-  const countLabel = hasRecording || mode === "recorded" || mode === "playing" ? "12 actions" : "Demo";
+  const countLabel =
+    mode === "recording"
+      ? `${visibleCount} events`
+      : hasRecording || mode === "recorded" || mode === "playing"
+        ? "12 actions"
+        : "Demo";
 
   function startRecording() {
     setMode("recording");
