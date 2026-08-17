@@ -2,22 +2,22 @@ const steps = [
   {
     number: "01",
     title: "Record",
-    description: "Press Record and begin performing your actions.",
+    description: "Press Record in Macroly or use the visual F6 shortcut.",
   },
   {
     number: "02",
-    title: "Perform",
-    description: "Use your keyboard and mouse normally.",
+    title: "Do the task",
+    description: "Use your keyboard and mouse normally while timing is captured.",
   },
   {
     number: "03",
     title: "Stop",
-    description: "Stop recording when the sequence is complete.",
+    description: "Stop when the sequence is complete and review the saved actions.",
   },
   {
     number: "04",
     title: "Replay",
-    description: "Choose how many times to repeat it and press Play.",
+    description: "Choose a repeat count or infinite mode, then press Play.",
   },
 ];
 
@@ -25,20 +25,16 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="border-y border-white/10 bg-[#080809] px-5 py-24 sm:px-6 lg:px-8 lg:py-28"
+      className="border-y border-white/10 bg-[#080809]/82 px-5 py-20 sm:px-6 lg:px-8 lg:py-24"
       data-reveal
     >
-      <div className="mx-auto max-w-[1280px]">
+      <div className="macro-container">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">
-            How It Works
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-normal text-white sm:text-4xl lg:text-5xl">
-            Record once. Replay anytime.
-          </h2>
+          <p className="macro-eyebrow">How It Works</p>
+          <h2 className="macro-heading mt-4">Record once. Replay with control.</h2>
         </div>
 
-        <div className="relative mt-14 grid gap-8 md:grid-cols-4 md:gap-6">
+        <div className="relative mt-12 grid gap-8 md:grid-cols-4 md:gap-6">
           <div
             className="absolute left-8 right-8 top-6 hidden h-px bg-white/10 md:block"
             aria-hidden="true"
