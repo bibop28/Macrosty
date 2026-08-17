@@ -320,14 +320,12 @@ export default function AppPreview() {
                       return (
                         <li
                           key={`${event.time}-${event.label}`}
-                          className={`timeline-event grid grid-cols-[70px_44px_minmax(0,1fr)] items-center gap-2 py-2 text-xs ${
+                          className={`timeline-event grid grid-cols-[70px_auto_minmax(0,1fr)] items-center gap-3 py-2 text-xs ${
                             isActive ? "text-cyan-100" : "text-zinc-300"
                           } ${isPlaceholder ? "opacity-70" : ""}`}
                         >
                           <span className="font-mono text-zinc-500">{event.time}</span>
-                          <span className="keycap h-6 min-w-0 px-1 text-[0.65rem]">
-                            {event.key}
-                          </span>
+                          <span className="keycap">{event.key}</span>
                           <span className="truncate font-medium">{event.label}</span>
                         </li>
                       );
@@ -383,15 +381,15 @@ export default function AppPreview() {
             </aside>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/[0.08] bg-[#101114]/70 px-4 py-3 text-xs text-zinc-400 sm:px-5">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/[0.08] bg-[#101114]/60 px-4 py-3 text-xs text-zinc-500 sm:px-5">
             {[
               ["F6", "Record"],
               ["F7", "Play"],
               ["F8", "Stop"],
             ].map(([key, label]) => (
-              <div key={key} className="flex items-center gap-2">
-                <span className="keycap h-6 min-w-8 text-[0.65rem]">{key}</span>
-                <span>{label}</span>
+              <div key={key} className="flex items-center gap-2.5">
+                <span className="keycap keycap-shortcut">{key}</span>
+                <span className="font-medium text-zinc-400">{label}</span>
               </div>
             ))}
           </div>
