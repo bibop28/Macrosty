@@ -322,7 +322,7 @@ export default function AppPreview() {
                           key={`${event.time}-${event.label}`}
                           className={`timeline-event grid grid-cols-[70px_auto_minmax(0,1fr)] items-center gap-3 py-2 text-xs ${
                             isActive ? "text-cyan-100" : "text-zinc-300"
-                          } ${isPlaceholder ? "opacity-70" : ""}`}
+                          } ${isPlaceholder ? "opacity-80" : ""}`}
                         >
                           <span className="font-mono text-zinc-500">{event.time}</span>
                           <span className="keycap">{event.key}</span>
