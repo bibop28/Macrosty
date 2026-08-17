@@ -97,9 +97,6 @@ export default function AppPreview() {
     }
 
     let index = 0;
-    setPlayIndex(0);
-    setElapsed(demoEvents[0].ms);
-
     const playback = window.setInterval(() => {
       index += 1;
 
@@ -174,8 +171,10 @@ export default function AppPreview() {
     }
 
     setVisibleCount(demoEvents.length);
-    setMode("playing");
     setActiveMacro(macroName);
+    setPlayIndex(0);
+    setElapsed(demoEvents[0].ms);
+    setMode("playing");
   }
 
   return (
