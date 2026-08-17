@@ -182,9 +182,9 @@ summary::-webkit-details-marker {
   height: 1.35rem;
   padding-inline: 0.42rem;
   border-radius: 0.45rem;
-  border: 1px solid rgba(255, 255, 255, 0.075);
-  background: rgba(255, 255, 255, 0.035);
-  color: rgba(244, 244, 245, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.048);
+  color: rgba(244, 244, 245, 0.84);
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   font-size: 0.66rem;
@@ -195,9 +195,9 @@ summary::-webkit-details-marker {
 
 .keycap-shortcut {
   min-width: 1.85rem;
-  color: rgba(var(--macro-accent-rgb), 0.86);
-  border-color: rgba(var(--macro-accent-rgb), 0.12);
-  background: rgba(var(--macro-accent-rgb), 0.055);
+  color: rgba(var(--macro-accent-rgb), 0.92);
+  border-color: rgba(var(--macro-accent-rgb), 0.15);
+  background: rgba(var(--macro-accent-rgb), 0.07);
 }
 
 .preview-glow {
