@@ -31,15 +31,11 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section id="faq" className="px-5 py-24 sm:px-6 lg:px-8 lg:py-28" data-reveal>
+    <section id="faq" className="macro-section" data-reveal>
       <div className="mx-auto max-w-3xl">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">
-            FAQ
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-normal text-white sm:text-4xl">
-            Common questions
-          </h2>
+          <p className="macro-eyebrow">FAQ</p>
+          <h2 className="macro-heading mt-4">Common questions</h2>
         </div>
 
         <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
