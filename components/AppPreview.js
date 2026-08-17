@@ -219,13 +219,17 @@ export default function AppPreview() {
                     type="button"
                     className={`macro-button h-11 min-h-0 px-2 text-sm ${
                       mode === "recording"
-                        ? "border-red-300/55 bg-red-500/18 text-red-50"
+                        ? "border-red-300/55 bg-red-500/[0.18] text-red-50"
                         : "border-red-400/35 bg-red-500/10 text-red-100 hover:border-red-300/50 hover:bg-red-500/15"
                     }`}
                     aria-pressed={mode === "recording"}
                     onClick={startRecording}
                   >
-                    <span className="relative size-2.5 rounded-full bg-red-400 shadow-[0_0_14px_rgba(248,113,113,0.45)]" />
+                    <span
+                      className={`relative size-2.5 rounded-full bg-red-400 shadow-[0_0_14px_rgba(248,113,113,0.45)] ${
+                        mode === "recording" ? "record-pulse" : ""
+                      }`}
+                    />
                     <span>Record</span>
                   </button>
                   <button
