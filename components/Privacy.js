@@ -6,8 +6,8 @@ export default function Privacy() {
       data-reveal
     >
       <div className="macro-container grid gap-10 lg:grid-cols-[0.92fr_1fr] lg:items-center">
-        <div className="order-2 rounded-lg border border-white/10 bg-[#0a0b0d] p-4 shadow-[0_24px_80px_rgba(0,0,0,0.25)] lg:order-1">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
+        <div className="order-2 rounded-lg border border-white/[0.08] bg-white/[0.025] p-4 shadow-[0_20px_70px_rgba(0,0,0,0.2)] lg:order-1">
+          <div className="flex items-center justify-between border-b border-white/[0.07] pb-3">
             <div className="flex items-center gap-3">
               <svg
                 viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ export default function Privacy() {
             </span>
           </div>
 
-          <div className="mt-4 space-y-2">
+          <div className="mt-3 divide-y divide-white/[0.06]">
             {[
               ["00:00.42", "Key W pressed"],
               ["00:01.08", "Mouse moved"],
@@ -37,7 +37,7 @@ export default function Privacy() {
             ].map(([time, action]) => (
               <div
                 key={time}
-                className="grid grid-cols-[78px_minmax(0,1fr)] gap-3 rounded-md border border-white/[0.08] bg-[#070809] px-3 py-2.5 text-sm"
+                className="grid grid-cols-[78px_minmax(0,1fr)] gap-3 py-2.5 text-sm"
               >
                 <span className="font-mono text-xs text-zinc-500">{time}</span>
                 <span className="truncate text-zinc-300">{action}</span>
@@ -45,8 +45,8 @@ export default function Privacy() {
             ))}
           </div>
 
-          <div className="mt-4 flex items-center gap-3 rounded-md border border-white/[0.08] bg-white/[0.025] px-3 py-3 text-sm text-zinc-400">
-            <span className="grid size-8 shrink-0 place-items-center rounded-md border border-cyan-300/20 bg-cyan-300/10 text-cyan-100">
+          <div className="mt-3 flex items-center gap-3 border-t border-white/[0.07] pt-3 text-sm text-zinc-400">
+            <span className="grid size-8 shrink-0 place-items-center rounded-md bg-cyan-300/10 text-cyan-100">
               <svg
                 viewBox="0 0 24 24"
                 className="size-4"
