@@ -23,7 +23,7 @@ export default function DownloadButton({ className = "", label = "Download for W
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`w-full sm:w-auto ${className}`}>
+    <div className={`relative z-10 w-full sm:w-fit ${className}`}>
       <button
         type="button"
         className="macro-button macro-button-primary w-full sm:w-auto"
@@ -39,20 +39,20 @@ export default function DownloadButton({ className = "", label = "Download for W
       </button>
 
       <div
-        className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
-          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        className={`absolute left-0 top-full mt-2 w-full min-w-full transition-[opacity,transform] duration-200 ease-out sm:w-80 ${
+          isOpen
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-1 opacity-0"
         }`}
       >
-        <div className="overflow-hidden">
-          <p
-            id={statusId}
-            role="status"
-            aria-live="polite"
-            className="mt-2 rounded-md border border-white/10 bg-[#101114] px-3 py-2 text-xs leading-5 text-zinc-300 shadow-[0_12px_28px_rgba(0,0,0,0.22)]"
-          >
-            Macroly is still in development. No Windows installer is available yet.
-          </p>
-        </div>
+        <p
+          id={statusId}
+          role="status"
+          aria-live="polite"
+          className="rounded-md border border-white/10 bg-[#101114] px-3 py-2 text-xs leading-5 text-zinc-300 shadow-[0_12px_28px_rgba(0,0,0,0.22)]"
+        >
+          Macroly is still in development. No Windows installer is available yet.
+        </p>
       </div>
     </div>
   );
