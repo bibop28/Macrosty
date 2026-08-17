@@ -1,21 +1,4 @@
-function DownloadIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="size-4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M12 4v10" />
-      <path d="m8 10 4 4 4-4" />
-      <path d="M5 20h14" />
-    </svg>
-  );
-}
+import DownloadButton from "./DownloadButton";
 
 function GitHubIcon() {
   return (
@@ -27,88 +10,51 @@ function GitHubIcon() {
 
 export default function Hero() {
   return (
-    <section id="top" className="relative px-5 pb-10 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pb-16 lg:pt-28">
-      <div className="mx-auto grid max-w-[1440px] gap-12 xl:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.72fr)] xl:items-center">
-        <div className="max-w-3xl">
-          <div className="mb-7 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.025] px-3 py-2 text-sm text-zinc-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+    <section id="top" className="relative px-5 pb-4 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pb-6 lg:pt-20">
+      <div className="macro-container grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_320px] lg:items-end">
+        <div className="max-w-4xl">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.025] px-3 py-2 text-sm text-zinc-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
             <span className="size-2 rounded-full bg-cyan-300" aria-hidden="true" />
             Macroly is currently in development
           </div>
 
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-[72px]">
+          <h1 className="max-w-5xl text-[clamp(3rem,8vw,5.25rem)] font-semibold leading-[0.98] tracking-normal text-white">
             Record. Replay. Repeat.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400 sm:text-xl sm:leading-9">
-            A lightweight macro recorder for Windows. Record your keyboard and
-            mouse actions and replay them whenever you need.
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-400 sm:text-xl sm:leading-9">
+            Macroly is a lightweight Windows macro recorder. Record keyboard and
+            mouse actions, then replay the same sequence automatically.
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href="#download"
-              className="inline-flex min-h-[52px] items-center justify-center gap-3 rounded-md bg-cyan-200 px-5 py-3 text-sm font-semibold text-zinc-950 shadow-[0_12px_30px_rgba(103,232,249,0.16)] transition hover:-translate-y-0.5 hover:bg-cyan-100 active:translate-y-0 sm:px-5"
-            >
-              <DownloadIcon />
-              <span className="whitespace-nowrap">Download for Windows</span>
-              <span className="shrink-0 rounded border border-zinc-950/15 bg-zinc-950/5 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-zinc-700">
-                Coming Soon
-              </span>
-            </a>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-start">
+            <DownloadButton />
             <a
               href="#"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-white/10 bg-white/[0.025] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.06] active:translate-y-0"
+              className="macro-button macro-button-secondary w-full sm:w-auto"
             >
               <GitHubIcon />
               <span className="whitespace-nowrap">View on GitHub</span>
             </a>
           </div>
-
-          <p className="mt-5 text-sm font-medium text-zinc-500">
-            Windows 10 / 11 • Free • Local-first
-          </p>
         </div>
 
-        <div className="hidden xl:block">
-          <div className="ml-auto max-w-lg rounded-xl border border-white/10 bg-[#0a0b0d] p-5 shadow-[0_28px_80px_rgba(0,0,0,0.36)]">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <p className="text-sm font-semibold text-white">Macro timeline</p>
-              <span className="rounded-md border border-cyan-300/25 bg-cyan-300/10 px-2.5 py-1 text-xs font-medium text-cyan-100">
-                Ready
-              </span>
+        <dl className="grid gap-2 rounded-lg border border-white/10 bg-[#0a0b0d]/90 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.28)] sm:grid-cols-3 lg:block lg:space-y-2">
+          {[
+            ["Platform", "Windows 10 / 11"],
+            ["Storage", "Local"],
+            ["Status", "In Development"],
+          ].map(([label, value]) => (
+            <div
+              key={label}
+              className="rounded-md border border-white/[0.07] bg-white/[0.025] px-3 py-2.5"
+            >
+              <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">
+                {label}
+              </dt>
+              <dd className="mt-1 text-sm font-semibold text-zinc-100">{value}</dd>
             </div>
-
-            <div className="mt-5 space-y-2.5">
-              {[
-                {
-                  time: "00:00.000",
-                  action: "F6 pressed",
-                  detail: "Recording started",
-                },
-                {
-                  time: "00:01.248",
-                  action: "Mouse click",
-                  detail: "Position captured",
-                },
-                {
-                  time: "00:02.910",
-                  action: "Key release",
-                  detail: "Timing preserved",
-                },
-              ].map((event) => (
-                <div
-                  key={event.time}
-                  className="grid grid-cols-[88px_1fr] gap-4 rounded-md border border-white/10 bg-white/[0.025] px-3.5 py-3"
-                >
-                  <span className="font-mono text-xs text-zinc-500">{event.time}</span>
-                  <div>
-                    <p className="text-sm font-medium text-zinc-200">{event.action}</p>
-                    <p className="mt-1 text-xs text-zinc-500">{event.detail}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
