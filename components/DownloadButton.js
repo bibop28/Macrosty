@@ -39,6 +39,7 @@ export default function DownloadButton({ className = "", label = "Download for W
       </button>
 
       <div
+        aria-hidden={!isOpen}
         className={`absolute left-0 top-full mt-2 w-full min-w-full transition-[opacity,transform] duration-200 ease-out sm:w-80 ${
           isOpen
             ? "pointer-events-auto translate-y-0 opacity-100"
