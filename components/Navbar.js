@@ -35,7 +35,7 @@ export default function Navbar() {
       }`}
     >
       <nav
-        className="relative mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 sm:px-6 lg:px-8"
+        className="macro-container relative flex h-16 items-center justify-between px-5 sm:px-6 lg:px-8"
         aria-label="Primary navigation"
       >
         <a
@@ -47,7 +47,7 @@ export default function Navbar() {
           Macroly
         </a>
 
-        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
+        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -59,10 +59,10 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <a
             href="#download"
-            className="inline-flex h-10 items-center justify-center rounded-md border border-cyan-300/35 bg-cyan-300/10 px-4 text-sm font-semibold text-cyan-50 shadow-[0_0_0_1px_rgba(103,232,249,0.04)] transition hover:-translate-y-0.5 hover:border-cyan-200/55 hover:bg-cyan-300/15 active:translate-y-0"
+            className="macro-button macro-button-ghost h-10 min-h-0 px-4"
           >
             Download
           </a>
@@ -70,7 +70,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex size-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.03] text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.06] active:scale-95 md:hidden"
+          className="inline-flex size-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.03] text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.06] active:scale-95 lg:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
@@ -96,7 +96,7 @@ export default function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`grid border-t bg-[#080809]/98 transition-[grid-template-rows,opacity,border-color] duration-200 ease-out md:hidden ${
+        className={`grid border-t bg-[#080809]/98 transition-[grid-template-rows,opacity,border-color] duration-200 ease-out lg:hidden ${
           isOpen
             ? "grid-rows-[1fr] border-white/10 opacity-100"
             : "pointer-events-none grid-rows-[0fr] border-transparent opacity-0"
@@ -104,7 +104,7 @@ export default function Navbar() {
         aria-hidden={!isOpen}
       >
         <div className="overflow-hidden">
-          <div className="mx-auto flex max-w-[1440px] flex-col gap-1 px-5 py-4">
+          <div className="macro-container flex flex-col gap-1 px-5 py-4 sm:px-6">
             {navLinks.map((link) => (
               <a
                 key={link.label}
