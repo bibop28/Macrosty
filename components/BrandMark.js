@@ -1,7 +1,7 @@
 export default function BrandMark({ className = "size-9" }) {
   return (
     <span
-      className={`inline-grid shrink-0 place-items-center rounded-md border border-cyan-300/30 bg-cyan-300/10 text-cyan-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] ${className}`}
+      className={`inline-grid shrink-0 place-items-center rounded-md border border-[rgba(var(--macro-accent-rgb),0.3)] bg-[rgba(var(--macro-accent-rgb),0.1)] text-[var(--macro-accent-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] ${className}`}
       aria-hidden="true"
     >
       <svg
