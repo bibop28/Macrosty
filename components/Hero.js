@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="max-w-4xl">
           <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.025] px-3 py-2 text-sm text-zinc-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
             <span className="size-2 rounded-full bg-cyan-300" aria-hidden="true" />
-            Macroly is currently in development
+            Windows macro recorder
           </div>
 
           <h1 className="max-w-5xl text-[clamp(3rem,8vw,5.25rem)] font-semibold leading-[0.98] tracking-normal text-white">
@@ -38,7 +38,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <dl className="grid gap-2 rounded-lg border border-white/10 bg-[#0a0b0d]/90 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.28)] sm:grid-cols-3 lg:block lg:space-y-2">
+        <dl className="grid grid-cols-3 rounded-lg border border-white/[0.08] bg-white/[0.025] px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.2)] lg:block lg:space-y-3 lg:px-4">
           {[
             ["Platform", "Windows 10 / 11"],
             ["Storage", "Local"],
@@ -46,12 +46,12 @@ export default function Hero() {
           ].map(([label, value]) => (
             <div
               key={label}
-              className="rounded-md border border-white/[0.07] bg-white/[0.025] px-3 py-2.5"
+              className="px-2 lg:px-0"
             >
-              <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-500">
                 {label}
               </dt>
-              <dd className="mt-1 text-sm font-semibold text-zinc-100">{value}</dd>
+              <dd className="mt-1 text-xs font-semibold text-zinc-100 sm:text-sm">{value}</dd>
             </div>
           ))}
         </dl>
