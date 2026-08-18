@@ -8,14 +8,17 @@ function GitHubIcon() {
 
 export default function Hero() {
   return (
-    <section id="top" className="relative px-5 pb-4 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pb-6 lg:pt-20">
+    <section id="top" className="relative px-5 pb-6 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pb-8 lg:pt-24">
       <div className="macro-container">
         <div className="max-w-4xl">
-          <p className="mb-5 text-sm font-semibold text-cyan-100">Macroly</p>
+          <p className="mb-5 text-sm font-semibold text-cyan-100">Windows macro recorder</p>
 
-          <h1 className="max-w-5xl text-[clamp(3rem,8vw,5.25rem)] font-semibold leading-[0.98] tracking-normal text-white">
-            Record. Replay. Repeat.
+          <h1 className="text-6xl font-semibold leading-none tracking-normal text-white sm:text-7xl lg:text-8xl">
+            Macroly
           </h1>
+          <p className="mt-5 max-w-5xl text-5xl font-semibold leading-none tracking-normal text-white sm:text-6xl lg:text-7xl">
+            Record. Replay. Repeat.
+          </p>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-400 sm:text-xl sm:leading-9">
             Macroly is a lightweight Windows macro recorder. Record keyboard and
             mouse actions, then replay the same sequence automatically.
