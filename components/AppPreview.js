@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import BrandMark from "./BrandMark";
 
 const demoEvents = [
@@ -62,7 +62,7 @@ function StopIcon() {
 
 export default function AppPreview() {
   const [mode, setMode] = useState("ready");
-  const [visibleCount, setVisibleCount] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(demoEvents.length);
   const [elapsed, setElapsed] = useState(0);
   const [playIndex, setPlayIndex] = useState(-1);
   const [repeatCount, setRepeatCount] = useState(5);
@@ -115,13 +115,7 @@ export default function AppPreview() {
 
   const status = statusMeta[mode];
   const hasRecording = visibleCount > 0;
-  const displayedEvents = useMemo(() => {
-    if (hasRecording || mode !== "ready") {
-      return demoEvents.slice(0, visibleCount);
-    }
-
-    return demoEvents.slice(0, 4);
-  }, [hasRecording, mode, visibleCount]);
+  const displayedEvents = demoEvents.slice(0, visibleCount);
   const progress =
     mode === "playing"
       ? ((playIndex + 1) / demoEvents.length) * 100
@@ -136,8 +130,8 @@ export default function AppPreview() {
     mode === "recording"
       ? `${visibleCount} events`
       : hasRecording || mode === "recorded" || mode === "playing"
-        ? "12 actions"
-        : "Demo";
+        ? `${demoEvents.length} events`
+        : "0 events";
 
   function startRecording() {
     setMode("recording");
@@ -208,13 +202,13 @@ export default function AppPreview() {
           <div className="grid lg:grid-cols-[minmax(0,1fr)_320px]">
             <div className="min-w-0 p-4 sm:p-5 lg:pr-6">
               <section aria-label="Macro controls">
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   <button
                     type="button"
-                    className={`macro-button h-10 min-h-0 px-3 text-sm ${
+                    className={`macro-button h-11 min-h-0 px-3 text-sm ${
                       mode === "recording"
-                        ? "border-red-300/55 bg-red-500/[0.18] text-red-50"
-                        : "border-red-400/30 bg-red-500/[0.09] text-red-100 hover:border-red-300/45 hover:bg-red-500/[0.14]"
+                        ? "border-red-300/45 bg-red-500/[0.16] text-red-50"
+                        : "border-red-300/25 bg-red-500/[0.08] text-red-100 hover:border-red-300/40 hover:bg-red-500/[0.12]"
                     }`}
                     aria-pressed={mode === "recording"}
                     onClick={startRecording}
@@ -228,7 +222,7 @@ export default function AppPreview() {
                   </button>
                   <button
                     type="button"
-                    className="macro-button h-10 min-h-0 border-transparent bg-white/[0.035] px-3 text-sm text-zinc-200 hover:border-white/[0.1] hover:bg-white/[0.06]"
+                    className="macro-button h-11 min-h-0 border-white/[0.08] bg-white/[0.035] px-3 text-sm text-zinc-200 hover:border-cyan-300/20 hover:bg-white/[0.06]"
                     disabled={mode === "recording" || !hasRecording}
                     onClick={() => playRecording()}
                   >
@@ -237,7 +231,7 @@ export default function AppPreview() {
                   </button>
                   <button
                     type="button"
-                    className="macro-button h-10 min-h-0 border-transparent bg-white/[0.025] px-3 text-sm text-zinc-300 hover:border-white/[0.1] hover:bg-white/[0.055]"
+                    className="macro-button h-11 min-h-0 border-white/[0.08] bg-white/[0.025] px-3 text-sm text-zinc-300 hover:border-white/[0.12] hover:bg-white/[0.055]"
                     disabled={mode !== "recording" && mode !== "playing"}
                     onClick={stopRecording}
                   >
@@ -246,13 +240,13 @@ export default function AppPreview() {
                   </button>
                 </div>
 
-                <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.07] pb-5">
+                <div className="mt-4 grid gap-3 border-b border-white/[0.07] pb-5 sm:flex sm:items-center sm:justify-between">
                   <span className="text-sm font-semibold text-white">Repeat</span>
                   <div className="flex flex-wrap items-center gap-3">
-                    <div className="inline-flex h-9 overflow-hidden rounded-md border border-white/[0.09] bg-white/[0.025]">
+                    <div className="inline-grid h-8 grid-cols-[2rem_2.5rem_2rem] overflow-hidden rounded-md border border-white/[0.07] bg-[#15171a]/70">
                       <button
                         type="button"
-                        className="grid w-9 place-items-center border-r border-white/[0.07] text-sm font-semibold text-zinc-200 transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-45"
+                        className="grid place-items-center text-sm font-semibold text-zinc-200 transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-45"
                         aria-label="Decrease repeat count"
                         disabled={isInfinite}
                         onClick={() => setRepeatCount((current) => Math.max(1, current - 1))}
@@ -260,14 +254,14 @@ export default function AppPreview() {
                         -
                       </button>
                       <output
-                        className="grid min-w-10 place-items-center px-3 font-mono text-sm text-white"
+                        className="grid place-items-center border-x border-white/[0.06] font-mono text-sm text-white"
                         aria-label="Repeat count"
                       >
                         {repeatCount}
                       </output>
                       <button
                         type="button"
-                        className="grid w-9 place-items-center border-l border-white/[0.07] text-sm font-semibold text-zinc-200 transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-45"
+                        className="grid place-items-center text-sm font-semibold text-zinc-200 transition hover:bg-white/[0.05] disabled:cursor-not-allowed disabled:opacity-45"
                         aria-label="Increase repeat count"
                         disabled={isInfinite}
                         onClick={() => setRepeatCount((current) => Math.min(99, current + 1))}
@@ -279,10 +273,10 @@ export default function AppPreview() {
                     <button
                       type="button"
                       aria-pressed={isInfinite}
-                      className={`inline-flex h-9 items-center gap-2 rounded-md px-2.5 text-sm transition active:scale-[0.99] ${
+                      className={`inline-flex h-8 items-center gap-2 rounded-md border px-2.5 text-sm transition active:scale-[0.99] ${
                         isInfinite
-                          ? "bg-cyan-300/10 text-cyan-50"
-                          : "text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-200"
+                          ? "border-cyan-300/18 bg-cyan-300/10 text-cyan-50"
+                          : "border-white/[0.06] bg-white/[0.025] text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-200"
                       }`}
                       onClick={() => setIsInfinite((current) => !current)}
                     >
@@ -320,12 +314,12 @@ export default function AppPreview() {
                       return (
                         <li
                           key={`${event.time}-${event.label}`}
-                          className={`timeline-event grid grid-cols-[70px_auto_minmax(0,1fr)] items-center gap-3 py-2 text-xs ${
+                          className={`timeline-event grid grid-cols-[4.5rem_3.25rem_minmax(0,1fr)] items-center gap-2.5 py-2 text-xs sm:gap-3 ${
                             isActive ? "text-cyan-100" : "text-zinc-300"
-                          } ${isPlaceholder ? "opacity-80" : ""}`}
+                          }`}
                         >
                           <span className="font-mono text-zinc-500">{event.time}</span>
-                          <span className="keycap">{event.key}</span>
+                          <span className="keycap justify-self-start">{event.key}</span>
                           <span className="truncate font-medium">{event.label}</span>
                         </li>
                       );
