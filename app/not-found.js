@@ -1,3 +1,4 @@
+import Link from "next/link";
 import BrandMark from "@/components/BrandMark";
 
 export const metadata = {
@@ -9,13 +10,13 @@ export default function NotFound() {
   return (
     <main className="site-shell flex min-h-screen items-center overflow-x-hidden bg-[#050506] px-5 py-16 text-zinc-50 sm:px-6 lg:px-8">
       <div className="macro-container">
-        <a
+        <Link
           href="/"
           className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-white transition hover:text-cyan-50"
         >
           <BrandMark className="size-8" />
           Macroly
-        </a>
+        </Link>
 
         <div className="mt-16 max-w-xl">
           <p className="macro-eyebrow">404</p>
@@ -23,11 +24,11 @@ export default function NotFound() {
             Page not found.
           </h1>
           <p className="macro-copy mt-4 max-w-md">
-            The page you're looking for doesn't exist.
+            The page you&apos;re looking for doesn&apos;t exist.
           </p>
-          <a href="/" className="macro-button macro-button-primary mt-8">
+          <Link href="/" className="macro-button macro-button-primary mt-8">
             Back to Macroly
-          </a>
+          </Link>
         </div>
       </div>
     </main>
