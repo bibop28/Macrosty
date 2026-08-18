@@ -46,7 +46,7 @@ export default function Navbar() {
           Macroly
         </a>
 
-        <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
