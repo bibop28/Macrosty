@@ -57,11 +57,11 @@ export default function Privacy() {
                 strokeLinejoin="round"
                 aria-hidden="true"
               >
-                <rect x="5" y="11" width="14" height="9" rx="2" />
-                <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+                <rect x="4" y="5" width="16" height="11" rx="2" />
+                <path d="M8 20h8M12 16v4" />
               </svg>
             </span>
-            Saved on the PC. No account, cloud sync, or server upload is required for replay.
+            Saved on the PC. No server upload is required for replay.
           </div>
         </div>
 
