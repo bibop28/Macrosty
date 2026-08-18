@@ -46,10 +46,6 @@ button {
   color: #ffffff;
 }
 
-summary::-webkit-details-marker {
-  display: none;
-}
-
 :focus-visible {
   outline: 2px solid var(--macro-accent);
   outline-offset: 3px;
@@ -74,7 +70,7 @@ summary::-webkit-details-marker {
 }
 
 .macro-section {
-  padding: 5rem 1.25rem;
+  padding: 4rem 1.25rem;
 }
 
 .macro-container {
@@ -93,7 +89,7 @@ summary::-webkit-details-marker {
 
 .macro-heading {
   color: #ffffff;
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: 2rem;
   font-weight: 650;
   letter-spacing: 0;
   line-height: 1.06;
@@ -161,17 +157,6 @@ summary::-webkit-details-marker {
 .macro-button-secondary:hover {
   border-color: var(--macro-border-strong);
   background: rgba(255, 255, 255, 0.06);
-}
-
-.macro-button-ghost {
-  background: rgba(var(--macro-accent-rgb), 0.1);
-  border-color: rgba(var(--macro-accent-rgb), 0.34);
-  color: #ecfeff;
-}
-
-.macro-button-ghost:hover {
-  background: rgba(var(--macro-accent-rgb), 0.15);
-  border-color: rgba(var(--macro-accent-rgb), 0.52);
 }
 
 .keycap {
@@ -271,13 +256,21 @@ summary::-webkit-details-marker {
 
 @media (min-width: 640px) {
   .macro-section {
-    padding-inline: 1.5rem;
+    padding: 4.5rem 1.5rem;
+  }
+
+  .macro-heading {
+    font-size: 2.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .macro-section {
-    padding: 6rem 2rem;
+    padding: 5.5rem 2rem;
+  }
+
+  .macro-heading {
+    font-size: 3.25rem;
   }
 }
 
