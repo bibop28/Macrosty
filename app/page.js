@@ -1,6 +1,4 @@
 import AppPreview from "@/components/AppPreview";
-import CTA from "@/components/CTA";
-import FAQ from "@/components/FAQ";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -20,8 +18,6 @@ export default function Home() {
         <Features />
         <HowItWorks />
         <Privacy />
-        <FAQ />
-        <CTA />
       </main>
       <Footer />
     </div>

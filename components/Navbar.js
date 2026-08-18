@@ -7,8 +7,7 @@ const navLinks = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Privacy", href: "#privacy" },
-  { label: "FAQ", href: "#faq" },
-  { label: "GitHub", href: "#" },
+  { label: "GitHub", href: "https://github.com/bibop28/Macrosty" },
 ];
 
 export default function Navbar() {
@@ -59,15 +58,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden lg:block">
-          <a
-            href="#download"
-            className="macro-button macro-button-ghost h-10 min-h-0 px-4"
-          >
-            Download
-          </a>
-        </div>
-
         <button
           type="button"
           className="inline-flex size-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.03] text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.06] active:scale-95 lg:hidden"
@@ -116,14 +106,6 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#download"
-              tabIndex={isOpen ? 0 : -1}
-              className="mt-2 rounded-md border border-cyan-300/35 bg-cyan-300/10 px-3 py-3 text-sm font-semibold text-cyan-50 transition hover:border-cyan-200/50 hover:bg-cyan-300/15"
-              onClick={closeMenu}
-            >
-              Download
-            </a>
           </div>
         </div>
       </div>

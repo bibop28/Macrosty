@@ -4,8 +4,7 @@ const footerLinks = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Privacy", href: "#privacy" },
-  { label: "FAQ", href: "#faq" },
-  { label: "GitHub", href: "#" },
+  { label: "GitHub", href: "https://github.com/bibop28/Macrosty" },
 ];
 
 export default function Footer() {
@@ -19,23 +18,17 @@ export default function Footer() {
           </a>
           <p className="mt-3 text-sm text-zinc-500">&copy; 2026 Macroly</p>
         </div>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between lg:gap-7">
-          <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label="Footer navigation">
-            {footerLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-zinc-500 transition hover:text-white"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <div className="inline-flex w-fit items-center gap-2 rounded-md border border-white/10 bg-white/[0.025] px-3 py-2 text-xs font-semibold text-zinc-300">
-            <span className="size-1.5 rounded-full bg-cyan-300" aria-hidden="true" />
-            In Development
-          </div>
-        </div>
+        <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label="Footer navigation">
+          {footerLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-zinc-500 transition hover:text-white"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </footer>
   );

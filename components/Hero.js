@@ -1,5 +1,3 @@
-import DownloadButton from "./DownloadButton";
-
 function GitHubIcon() {
   return (
     <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden="true">
@@ -11,12 +9,9 @@ function GitHubIcon() {
 export default function Hero() {
   return (
     <section id="top" className="relative px-5 pb-4 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pb-6 lg:pt-20">
-      <div className="macro-container grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_320px] lg:items-end">
+      <div className="macro-container">
         <div className="max-w-4xl">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.025] px-3 py-2 text-sm text-zinc-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-            <span className="size-2 rounded-full bg-cyan-300" aria-hidden="true" />
-            Windows macro recorder
-          </div>
+          <p className="mb-5 text-sm font-semibold text-cyan-100">Macroly</p>
 
           <h1 className="max-w-5xl text-[clamp(3rem,8vw,5.25rem)] font-semibold leading-[0.98] tracking-normal text-white">
             Record. Replay. Repeat.
@@ -27,9 +22,14 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-start">
-            <DownloadButton />
             <a
-              href="#"
+              href="#features"
+              className="macro-button macro-button-primary w-full sm:w-auto"
+            >
+              Explore Features
+            </a>
+            <a
+              href="https://github.com/bibop28/Macrosty"
               className="macro-button macro-button-secondary w-full sm:w-auto"
             >
               <GitHubIcon />
@@ -37,24 +37,6 @@ export default function Hero() {
             </a>
           </div>
         </div>
-
-        <dl className="grid grid-cols-3 rounded-lg border border-white/[0.08] bg-white/[0.025] px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.2)] lg:block lg:space-y-3 lg:px-4">
-          {[
-            ["Platform", "Windows 10 / 11"],
-            ["Storage", "Local"],
-            ["Status", "In Development"],
-          ].map(([label, value]) => (
-            <div
-              key={label}
-              className="px-2 lg:px-0"
-            >
-              <dt className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-500">
-                {label}
-              </dt>
-              <dd className="mt-1 text-xs font-semibold text-zinc-100 sm:text-sm">{value}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 # Macroly Website
 
-Marketing site for Macroly, a lightweight Windows macro recorder currently in development.
+Presentation site for Macroly, a lightweight Windows macro recorder.
 
 ## Local Development
 
