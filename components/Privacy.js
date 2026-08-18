@@ -61,7 +61,7 @@ export default function Privacy() {
                 <path d="M8 20h8M12 16v4" />
               </svg>
             </span>
-            Saved on the PC. No server upload is required for replay.
+            Local macro file used for replay.
           </div>
         </div>
 
