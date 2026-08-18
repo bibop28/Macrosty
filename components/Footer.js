@@ -1,10 +1,13 @@
 import BrandMark from "./BrandMark";
+import ExternalLinkIcon from "./ExternalLinkIcon";
+
+const githubUrl = "https://github.com/bibop28/Macroly";
 
 const footerLinks = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Privacy", href: "#privacy" },
-  { label: "GitHub", href: "https://github.com/bibop28/Macrosty" },
+  { label: "GitHub", href: githubUrl, external: true },
 ];
 
 export default function Footer() {
@@ -23,9 +26,15 @@ export default function Footer() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-zinc-500 transition hover:text-white"
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+              aria-label={link.external ? `${link.label} repository (opens in a new tab)` : undefined}
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-zinc-500 transition hover:text-white"
             >
-              {link.label}
+              <span>{link.label}</span>
+              {link.external ? (
+                <ExternalLinkIcon className="size-3 opacity-60 transition group-hover:opacity-100" />
+              ) : null}
             </a>
           ))}
         </nav>
