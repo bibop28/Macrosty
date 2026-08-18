@@ -313,11 +313,11 @@ export default function AppPreview() {
                       return (
                         <li
                           key={`${event.time}-${event.label}`}
-                          className={`timeline-event grid grid-cols-[4.5rem_3.25rem_minmax(0,1fr)] items-center gap-2.5 py-2 text-xs sm:gap-3 ${
+                          className={`grid grid-cols-[4.5rem_3.25rem_minmax(0,1fr)] items-center gap-2.5 py-2 text-xs sm:gap-3 ${
                             isActive ? "text-cyan-100" : "text-zinc-300"
                           }`}
                         >
-                          <span className="font-mono text-zinc-500">{event.time}</span>
+                          <span className="font-mono text-zinc-400">{event.time}</span>
                           <span className="keycap justify-self-start">{event.key}</span>
                           <span className="truncate font-medium">{event.label}</span>
                         </li>

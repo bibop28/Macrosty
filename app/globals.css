@@ -199,10 +199,6 @@ button {
   content: "";
 }
 
-.timeline-event {
-  animation: timeline-event 220ms ease-out both;
-}
-
 .record-pulse {
   position: relative;
 }
@@ -242,18 +238,6 @@ button {
   }
 }
 
-@keyframes timeline-event {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (min-width: 640px) {
   .macro-section {
     padding: 4.5rem 1.5rem;
@@ -289,10 +273,6 @@ button {
   }
 
   .record-pulse::after {
-    animation: none !important;
-  }
-
-  .timeline-event {
     animation: none !important;
   }
 
