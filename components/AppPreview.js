@@ -157,7 +157,7 @@ export default function AppPreview() {
     }
   }
 
-  function playRecording(macroName = "Demo macro") {
+  function playRecording(macroName = "Current recording") {
     if (mode === "recording") {
       return;
     }
@@ -309,7 +309,6 @@ export default function AppPreview() {
                   {displayedEvents.length > 0 ? (
                     displayedEvents.map((event, index) => {
                       const isActive = mode === "playing" && playIndex === index;
-                      const isPlaceholder = !hasRecording && mode === "ready";
 
                       return (
                         <li
