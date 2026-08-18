@@ -1,3 +1,7 @@
+import ExternalLinkIcon from "./ExternalLinkIcon";
+
+const githubUrl = "https://github.com/bibop28/Macroly";
+
 function GitHubIcon() {
   return (
     <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden="true">
@@ -32,11 +36,15 @@ export default function Hero() {
               Explore Features
             </a>
             <a
-              href="https://github.com/bibop28/Macrosty"
-              className="macro-button macro-button-secondary w-full sm:w-auto"
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="macro-button macro-button-secondary group w-full sm:w-auto"
+              aria-label="View Macroly on GitHub (opens in a new tab)"
             >
               <GitHubIcon />
               <span className="whitespace-nowrap">View on GitHub</span>
+              <ExternalLinkIcon className="size-3.5 opacity-65 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
             </a>
           </div>
         </div>
