@@ -6,18 +6,18 @@ const steps = [
   },
   {
     number: "02",
-    title: "Do the task",
-    description: "Use your keyboard and mouse normally while timing is captured.",
+    title: "Perform",
+    description: "Use your keyboard and mouse normally.",
   },
   {
     number: "03",
     title: "Stop",
-    description: "Stop when the sequence is complete and review the saved actions.",
+    description: "Stop when the sequence is complete.",
   },
   {
     number: "04",
     title: "Replay",
-    description: "Choose a repeat count or infinite mode, then press Play.",
+    description: "Choose a repeat mode, then press Play.",
   },
 ];
 
@@ -25,7 +25,7 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="border-y border-white/10 bg-[#080809]/82 px-5 py-20 sm:px-6 lg:px-8 lg:py-24"
+      className="border-y border-white/10 bg-[#080809]/82 px-5 py-16 sm:px-6 lg:px-8 lg:py-20"
       data-reveal
     >
       <div className="macro-container">
